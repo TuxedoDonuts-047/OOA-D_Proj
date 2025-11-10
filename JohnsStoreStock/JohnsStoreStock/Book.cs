@@ -25,7 +25,7 @@ namespace JohnsStoreStock
         // Public properties to safely access data (Encapsulation)
         public int getID { 
             get { 
-                return id; 
+                return id;    
             }
         }
         public string getTitle {
