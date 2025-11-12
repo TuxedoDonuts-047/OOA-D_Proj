@@ -1,0 +1,110 @@
+//Creating library books
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml.Linq;
+
+namespace JohnsStoreStock
+{
+    public partial class frmCreateBooks : Form
+    {
+        frmMainMenu parent;
+
+        public frmCreateBooks()
+        {
+            InitializeComponent();
+        }
+
+        public frmCreateBooks(frmMainMenu parent)
+        {
+            InitializeComponent();
+            this.parent = parent;
+        }
+
+        public void mnuBack_Click(object sender, EventArgs e)
+        {
+            this.Close()
+            parent.Visible = true;
+        }
+        private mnuExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnCreateBooks_Click(object sender, EventArgs e)
+        {
+            if(txtBookID.Text.Equals(""))
+            {
+                MessageBox.Show("Book ID must be assigned", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBookID.Focus();
+                return;
+            }
+            if(txtBookAuthor.Text.Equals(""))
+            {
+                MessageBox.Show("Name of Author must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBookAuthor.Focus();
+                return;
+            }
+            if(txtBookname.Text.Equals(""))
+            {
+                MessageBox.Show("Name of book must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBookname.Focus();
+                return;
+            }
+            if(txtBookDescription.Text.Equals(""))
+            {
+                MessageBox.Show("Description of book must be entered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBookDescription.Focus();
+                return;
+            }
+            if(txtBookGenre.Text.Equals(""))
+            {
+                MessageBox.Show("Book Genre must be assigned", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtBookGenre.Focus();
+                return;
+            }
+
+            Library aBook = new Library(Convert.ToInt32(txtBookID.Text), txtBookAuthor.Text, txtBookname.Text, txtBookDescription.Text, txtGenre.Text);
+
+            aBook.addBook();
+
+            MessageBox.Show("Library Book Details entered has been created", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            txtBookID.Text = Library.getNextBookID().ToString("000");
+            txtBookAuthor.Clear();
+            txtBookname.Clear();
+            txtBookDescription.Clear();
+            txtBookGenre.Clear();
+            txtBookAuthor.Focus();
+
+            this.Close();
+            parent.Visible = true;
+        }
+
+        private void frmCreateBooks_Load(object sender, EventArgs e)
+        {
+            txtBookID.Text = Library.getNextBookID().ToString("000");
+            txtBookID.ReadOnly = true;
+        }
+
+        private void mnuUpdateBooks_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmUpdateBooks nextForm = new frmUpdateBooks();
+            nextForm.Show();
+        }
+        private void mnuRemoveBooks_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmRemoveBooks nextForm = new frmRemoveBooks();
+            nextForm.Show();
+        }
+    }
+}
