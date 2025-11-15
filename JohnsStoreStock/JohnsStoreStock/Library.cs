@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JohnsStoreStock
+namespace LibrarySystem
 {
     // SOLID - Open/Closed:
     // The Library class is open for extension (we can add new types of books),

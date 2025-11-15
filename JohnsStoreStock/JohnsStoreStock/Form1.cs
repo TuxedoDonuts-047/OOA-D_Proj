@@ -8,23 +8,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JohnsStoreStock
-{
-    public partial class Form1 : Form
-    {
-        public Form1()
-        {
+namespace LibrarySystem   {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void addBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //link to addBookForm
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void editBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //link to editBookForm
+        }
 
+        private void searchBookToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Link to searchBookForm
+        }
+
+        private void newCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Link to add new customer Form
+        }
+
+        private void editCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //link to edit cusurrent customer form
+        }
+
+        private void bookAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //link to form to analyse books form
+        }
+
+        private void checkOutBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Link to check out book form
+        }
+
+        private void returnBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //link to return books form
         }
     }
 }

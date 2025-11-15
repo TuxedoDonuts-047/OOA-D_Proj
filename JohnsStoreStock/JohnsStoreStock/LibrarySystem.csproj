@@ -48,17 +48,78 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="EBook.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddBook.Designer.cs">
+      <DependentUpon>frmAddBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBookAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBookAnalysis.Designer.cs">
+      <DependentUpon>frmBookAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCheckoutBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCheckoutBook.Designer.cs">
+      <DependentUpon>frmCheckoutBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditBook.Designer.cs">
+      <DependentUpon>frmEditBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditCustomer.Designer.cs">
+      <DependentUpon>frmEditCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewCustomer.Designer.cs">
+      <DependentUpon>frmNewCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReturnBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReturnBook.Designer.cs">
+      <DependentUpon>frmReturnBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSearchBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSearchBook.Designer.cs">
+      <DependentUpon>frmSearchBook.cs</DependentUpon>
     </Compile>
     <Compile Include="Library.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddBook.resx">
+      <DependentUpon>frmAddBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditBook.resx">
+      <DependentUpon>frmEditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditCustomer.resx">
+      <DependentUpon>frmEditCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewCustomer.resx">
+      <DependentUpon>frmNewCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSearchBook.resx">
+      <DependentUpon>frmSearchBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
