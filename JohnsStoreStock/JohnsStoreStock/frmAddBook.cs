@@ -31,5 +31,10 @@ namespace LibrarySystem
         {
             //adds book to DB/ArrayList as long as all fields have been filled and it does not clash with another stock
         }
+
+        private void frmAddBook_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

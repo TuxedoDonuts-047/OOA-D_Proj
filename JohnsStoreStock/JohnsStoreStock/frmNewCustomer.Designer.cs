@@ -136,6 +136,7 @@
             this.cboMember.Name = "cboMember";
             this.cboMember.Size = new System.Drawing.Size(100, 21);
             this.cboMember.TabIndex = 11;
+            this.cboMember.SelectedIndexChanged += new System.EventHandler(this.cboMember_SelectedIndexChanged);
             // 
             // btnAddCustomer
             // 
