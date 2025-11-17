@@ -180,6 +180,7 @@
             this.Controls.Add(this.btnBack);
             this.Name = "frmAddBook";
             this.Text = "frmAddBook";
+            this.Load += new System.EventHandler(this.frmAddBook_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
