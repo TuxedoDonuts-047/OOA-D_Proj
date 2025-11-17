@@ -44,6 +44,7 @@ namespace LibrarySystem
                 return isCheckedOut; 
             } 
         }
+      
 
         // SOLID, Single Responsibility:
         // this class only deals with book related actions, not UI or database.

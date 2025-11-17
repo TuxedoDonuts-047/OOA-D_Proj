@@ -33,14 +33,16 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.lblStock = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblCheckedOut = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
             this.cboStatus = new System.Windows.Forms.ComboBox();
             this.btnreset = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbSpecifyWhetherEBookOrBook = new System.Windows.Forms.ComboBox();
+            this.txtSpecifyFileSize = new System.Windows.Forms.TextBox();
+            this.lblSpecifyFileSizeInMBs = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnBack
@@ -75,7 +77,7 @@
             // lblAuthor
             // 
             this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Location = new System.Drawing.Point(107, 117);
+            this.lblAuthor.Location = new System.Drawing.Point(107, 96);
             this.lblAuthor.Name = "lblAuthor";
             this.lblAuthor.Size = new System.Drawing.Size(38, 13);
             this.lblAuthor.TabIndex = 3;
@@ -84,29 +86,20 @@
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(107, 168);
+            this.lblDescription.Location = new System.Drawing.Point(107, 118);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(60, 13);
             this.lblDescription.TabIndex = 4;
             this.lblDescription.Text = "Description";
             // 
-            // lblStock
+            // lblCheckedOut
             // 
-            this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(107, 257);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(74, 13);
-            this.lblStock.TabIndex = 5;
-            this.lblStock.Text = "Stock Amount";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(108, 304);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(37, 13);
-            this.lblStatus.TabIndex = 6;
-            this.lblStatus.Text = "Status";
+            this.lblCheckedOut.AutoSize = true;
+            this.lblCheckedOut.Location = new System.Drawing.Point(107, 188);
+            this.lblCheckedOut.Name = "lblCheckedOut";
+            this.lblCheckedOut.Size = new System.Drawing.Size(76, 13);
+            this.lblCheckedOut.TabIndex = 6;
+            this.lblCheckedOut.Text = "Checked Out?";
             // 
             // txtTitle
             // 
@@ -118,34 +111,26 @@
             // 
             // txtAuthor
             // 
-            this.txtAuthor.Location = new System.Drawing.Point(201, 110);
+            this.txtAuthor.Location = new System.Drawing.Point(201, 89);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(182, 20);
             this.txtAuthor.TabIndex = 8;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(201, 165);
+            this.txtDescription.Location = new System.Drawing.Point(201, 115);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(182, 60);
             this.txtDescription.TabIndex = 9;
             // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(201, 254);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(100, 20);
-            this.txtStock.TabIndex = 10;
-            // 
             // cboStatus
             // 
             this.cboStatus.FormattingEnabled = true;
             this.cboStatus.Items.AddRange(new object[] {
-            "O - \'Out of stock\'",
-            "S - \'Some Stock\'",
-            "F - \'Full Stock\'"});
-            this.cboStatus.Location = new System.Drawing.Point(201, 296);
+            "N",
+            "Y"});
+            this.cboStatus.Location = new System.Drawing.Point(201, 185);
             this.cboStatus.Name = "cboStatus";
             this.cboStatus.Size = new System.Drawing.Size(121, 21);
             this.cboStatus.TabIndex = 11;
@@ -160,19 +145,60 @@
             this.btnreset.UseVisualStyleBackColor = true;
             this.btnreset.Click += new System.EventHandler(this.btnreset_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(138, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "EBook?";
+            // 
+            // cbSpecifyWhetherEBookOrBook
+            // 
+            this.cbSpecifyWhetherEBookOrBook.FormattingEnabled = true;
+            this.cbSpecifyWhetherEBookOrBook.Items.AddRange(new object[] {
+            "N",
+            "Y"});
+            this.cbSpecifyWhetherEBookOrBook.Location = new System.Drawing.Point(201, 211);
+            this.cbSpecifyWhetherEBookOrBook.Name = "cbSpecifyWhetherEBookOrBook";
+            this.cbSpecifyWhetherEBookOrBook.Size = new System.Drawing.Size(121, 21);
+            this.cbSpecifyWhetherEBookOrBook.TabIndex = 14;
+            this.cbSpecifyWhetherEBookOrBook.SelectedIndexChanged += new System.EventHandler(this.cbSpecifyWhetherEBookOrBook_SelectedIndexChanged);
+            // 
+            // txtSpecifyFileSize
+            // 
+            this.txtSpecifyFileSize.Location = new System.Drawing.Point(201, 238);
+            this.txtSpecifyFileSize.Name = "txtSpecifyFileSize";
+            this.txtSpecifyFileSize.Size = new System.Drawing.Size(121, 20);
+            this.txtSpecifyFileSize.TabIndex = 15;
+            this.txtSpecifyFileSize.Visible = false;
+            // 
+            // lblSpecifyFileSizeInMBs
+            // 
+            this.lblSpecifyFileSizeInMBs.AutoSize = true;
+            this.lblSpecifyFileSizeInMBs.Location = new System.Drawing.Point(69, 241);
+            this.lblSpecifyFileSizeInMBs.Name = "lblSpecifyFileSizeInMBs";
+            this.lblSpecifyFileSizeInMBs.Size = new System.Drawing.Size(126, 13);
+            this.lblSpecifyFileSizeInMBs.TabIndex = 16;
+            this.lblSpecifyFileSizeInMBs.Text = "Specify File Size [In MBs]";
+            this.lblSpecifyFileSizeInMBs.Visible = false;
+            // 
             // frmAddBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(553, 450);
+            this.Controls.Add(this.lblSpecifyFileSizeInMBs);
+            this.Controls.Add(this.txtSpecifyFileSize);
+            this.Controls.Add(this.cbSpecifyWhetherEBookOrBook);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnreset);
             this.Controls.Add(this.cboStatus);
-            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.lblStock);
+            this.Controls.Add(this.lblCheckedOut);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblAuthor);
             this.Controls.Add(this.lblTitle);
@@ -193,13 +219,15 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblStock;
-        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblCheckedOut;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.ComboBox cboStatus;
         private System.Windows.Forms.Button btnreset;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbSpecifyWhetherEBookOrBook;
+        private System.Windows.Forms.TextBox txtSpecifyFileSize;
+        private System.Windows.Forms.Label lblSpecifyFileSizeInMBs;
     }
 }
