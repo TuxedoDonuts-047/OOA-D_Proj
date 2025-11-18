@@ -14,10 +14,11 @@ namespace LibrarySystem
 {
     public partial class frmMainMenu : Form
     {
-       
+        private Library library;  // shared instance
         public frmMainMenu()
         {
             InitializeComponent();
+            library = new Library(); // create it ONCE here
         }
 
         private void frmMainMenu_Load(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace LibrarySystem
 
         private void addBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddBook addBookForm = new frmAddBook();
+            frmAddBook addBookForm = new frmAddBook(library, this);
             this.Hide();
             addBookForm.Show();
 
@@ -36,7 +37,7 @@ namespace LibrarySystem
 
         private void editBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmEditBook editBookForm = new frmEditBook();
+            frmEditBook editBookForm = new frmEditBook(library, this);
             this.Hide();
             editBookForm.Show();
 
@@ -72,7 +73,7 @@ namespace LibrarySystem
 
         private void checkoutBooksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCheckoutBook checkoutBookForm = new frmCheckoutBook();
+            frmCheckoutBook checkoutBookForm = new frmCheckoutBook(library, this);
             this.Hide();
             checkoutBookForm.Show();
 

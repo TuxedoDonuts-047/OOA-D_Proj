@@ -31,17 +31,16 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.dataGridResults = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.grpDetails = new System.Windows.Forms.GroupBox();
-            this.lblStock = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
+            this.txtSizeInMBs = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.lblSizeInMBs = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.txtStock = new System.Windows.Forms.TextBox();
-            this.btnConfirm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridResults)).BeginInit();
             this.grpDetails.SuspendLayout();
             this.SuspendLayout();
@@ -63,52 +62,87 @@
             this.dataGridResults.Name = "dataGridResults";
             this.dataGridResults.Size = new System.Drawing.Size(597, 218);
             this.dataGridResults.TabIndex = 1;
+            this.dataGridResults.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridResults_CellContentClick);
+            this.dataGridResults.SelectionChanged += new System.EventHandler(this.dataGridResults_SelectionChanged);
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(158, 20);
+            this.txtSearch.Location = new System.Drawing.Point(98, 20);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(368, 20);
+            this.txtSearch.Size = new System.Drawing.Size(597, 20);
             this.txtSearch.TabIndex = 2;
-            this.txtSearch.Text = "search....";
+            this.txtSearch.Text = "search by title....";
             this.txtSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(543, 17);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 3;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // grpDetails
             // 
             this.grpDetails.Controls.Add(this.btnConfirm);
-            this.grpDetails.Controls.Add(this.txtStock);
+            this.grpDetails.Controls.Add(this.txtSizeInMBs);
             this.grpDetails.Controls.Add(this.txtDescription);
             this.grpDetails.Controls.Add(this.txtAuthor);
             this.grpDetails.Controls.Add(this.txtTitle);
-            this.grpDetails.Controls.Add(this.lblStock);
+            this.grpDetails.Controls.Add(this.lblSizeInMBs);
             this.grpDetails.Controls.Add(this.lblDescription);
             this.grpDetails.Controls.Add(this.lblAuthor);
             this.grpDetails.Controls.Add(this.lblTitle);
-            this.grpDetails.Location = new System.Drawing.Point(56, 334);
+            this.grpDetails.Location = new System.Drawing.Point(74, 334);
             this.grpDetails.Name = "grpDetails";
-            this.grpDetails.Size = new System.Drawing.Size(701, 250);
+            this.grpDetails.Size = new System.Drawing.Size(666, 250);
             this.grpDetails.TabIndex = 4;
             this.grpDetails.TabStop = false;
             this.grpDetails.Text = "Book Details";
+            this.grpDetails.Visible = false;
             // 
-            // lblStock
+            // btnConfirm
             // 
-            this.lblStock.AutoSize = true;
-            this.lblStock.Location = new System.Drawing.Point(382, 133);
-            this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(74, 13);
-            this.lblStock.TabIndex = 3;
-            this.lblStock.Text = "Stock Amount";
+            this.btnConfirm.Location = new System.Drawing.Point(254, 181);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(124, 49);
+            this.btnConfirm.TabIndex = 8;
+            this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // txtSizeInMBs
+            // 
+            this.txtSizeInMBs.Location = new System.Drawing.Point(450, 126);
+            this.txtSizeInMBs.Name = "txtSizeInMBs";
+            this.txtSizeInMBs.Size = new System.Drawing.Size(100, 20);
+            this.txtSizeInMBs.TabIndex = 7;
+            this.txtSizeInMBs.Visible = false;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(448, 41);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(212, 62);
+            this.txtDescription.TabIndex = 6;
+            // 
+            // txtAuthor
+            // 
+            this.txtAuthor.Location = new System.Drawing.Point(89, 126);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(218, 20);
+            this.txtAuthor.TabIndex = 5;
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(89, 41);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(218, 20);
+            this.txtTitle.TabIndex = 4;
+            // 
+            // lblSizeInMBs
+            // 
+            this.lblSizeInMBs.AutoSize = true;
+            this.lblSizeInMBs.Location = new System.Drawing.Point(382, 129);
+            this.lblSizeInMBs.Name = "lblSizeInMBs";
+            this.lblSizeInMBs.Size = new System.Drawing.Size(62, 13);
+            this.lblSizeInMBs.TabIndex = 3;
+            this.lblSizeInMBs.Text = "Size in MBs";
+            this.lblSizeInMBs.Visible = false;
             // 
             // lblDescription
             // 
@@ -122,7 +156,7 @@
             // lblAuthor
             // 
             this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Location = new System.Drawing.Point(45, 133);
+            this.lblAuthor.Location = new System.Drawing.Point(45, 129);
             this.lblAuthor.Name = "lblAuthor";
             this.lblAuthor.Size = new System.Drawing.Size(38, 13);
             this.lblAuthor.TabIndex = 1;
@@ -131,50 +165,11 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(45, 44);
+            this.lblTitle.Location = new System.Drawing.Point(56, 44);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(27, 13);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(111, 37);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(100, 20);
-            this.txtTitle.TabIndex = 4;
-            // 
-            // txtAuthor
-            // 
-            this.txtAuthor.Location = new System.Drawing.Point(111, 126);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(100, 20);
-            this.txtAuthor.TabIndex = 5;
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.Location = new System.Drawing.Point(474, 37);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(212, 62);
-            this.txtDescription.TabIndex = 6;
-            // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(474, 130);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(100, 20);
-            this.txtStock.TabIndex = 7;
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.Location = new System.Drawing.Point(254, 181);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(124, 49);
-            this.btnConfirm.TabIndex = 8;
-            this.btnConfirm.Text = "Confirm";
-            this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // frmEditBook
             // 
@@ -182,7 +177,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 629);
             this.Controls.Add(this.grpDetails);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dataGridResults);
             this.Controls.Add(this.btnBack);
@@ -201,13 +195,12 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.DataGridView dataGridResults;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox grpDetails;
-        private System.Windows.Forms.Label lblStock;
+        private System.Windows.Forms.Label lblSizeInMBs;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.TextBox txtSizeInMBs;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.TextBox txtTitle;

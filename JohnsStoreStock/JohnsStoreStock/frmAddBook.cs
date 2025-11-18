@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,21 @@ namespace LibrarySystem
 
     public partial class frmAddBook : Form
     {
-        Library library = new Library();
-        public frmAddBook()
+        private Library library;
+        private frmMainMenu mainMenu;
+
+        public frmAddBook(Library libraryInstance, frmMainMenu mainMenu)
         {
             InitializeComponent();
+            library = libraryInstance;
+            this.mainMenu = mainMenu;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             //return to main menu form
+            this.Hide();
+            mainMenu.Show();
         }
 
         private void btnreset_Click(object sender, EventArgs e)
@@ -32,59 +39,27 @@ namespace LibrarySystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //adds book to DB/ArrayList as long as all fields have been filled and it does not clash with another stock
-       
-            // Basic validation
-            if (string.IsNullOrWhiteSpace(txtTitle.Text) ||
-                string.IsNullOrWhiteSpace(txtAuthor.Text))
-            {
-                MessageBox.Show("Title and Author are required.");
-                return;
-            }
-
-            // Generate a new ID automatically
-            int newId = library.Books.Count + 1;
-
-            // Get checked-out status
+            String title = txtTitle.Text;
+            String author = txtAuthor.Text;
+            String description = txtDescription.Text;
             bool checkedOut = (cboStatus.SelectedItem.ToString() == "Y");
+            double mb;
 
-            Book bookToAdd;
-
-            // Is it an EBook?
             if (cbSpecifyWhetherEBookOrBook.SelectedItem.ToString() == "Y")
-            {
-                double mb;
-
-                if (!double.TryParse(txtSpecifyFileSize.Text, out mb))
+            {                                            // NumberStyles.Any and CultureInfo.InvariantCulture are there so it doesn't reject the decimal point "." as being a String
+                if (!double.TryParse(txtSpecifyFileSize.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out mb))
                 {
                     MessageBox.Show("Enter a valid number for file size.");
                     return;
                 }
-
-                // Create the EBook
-                EBook eb = new EBook(newId, txtTitle.Text, txtAuthor.Text, mb);
-
-                // Set its checked-out status
-                if (checkedOut)
-                    eb.Checkout();
-
-                bookToAdd = eb;
+                Library.addBook(title, author, description, mb, this.library, checkedOut);
             }
+
             else
             {
-                // Create a normal Book
-                Book b = new Book(newId, txtTitle.Text, txtAuthor.Text);
-
-                if (checkedOut)
-                    b.Checkout();
-
-                bookToAdd = b;
+                //If it's mb == -1, that's basically saying it's not an EBook
+                Library.addBook(title, author, description, -1, this.library, checkedOut);
             }
-
-            // Add to the library
-            library.Books.Add(bookToAdd);
-
-            MessageBox.Show("Book Added Successfully!");
 
             ResetForm();
         }

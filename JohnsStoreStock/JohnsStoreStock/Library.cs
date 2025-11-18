@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LibrarySystem
 {
@@ -64,5 +65,47 @@ namespace LibrarySystem
             }
             Console.WriteLine("Book not found.");
         }
+
+        public static void addBook(String title, String author, String description, Double sizeInMBs, Library library, bool checkedOut)
+        {
+            //adds book to DB/ArrayList as long as all fields have been filled and it does not clash with another stock
+
+            // Basic validation
+            if (string.IsNullOrWhiteSpace(title) ||
+                string.IsNullOrWhiteSpace(author))
+            {
+                MessageBox.Show("Title and Author are required.");
+                return;
+            }
+
+            // Generate a new ID automatically
+            int newId = library.Books.Count + 1;
+
+            Book bookToAdd;
+
+            // Is it an EBook?
+            if (sizeInMBs == -1)
+            {
+                Book b = new Book(newId, title, author, description);
+                if (checkedOut)
+                    b.Checkout();
+                bookToAdd = b;
+            }
+            else
+            {
+                // Create a ebook
+                EBook eb = new EBook(newId, title, author, sizeInMBs, description);
+                // Set its checked-out status
+                if (checkedOut)
+                    eb.Checkout();
+                bookToAdd = eb;
+            }
+
+            // Add to the library
+            library.Books.Add(bookToAdd);
+            MessageBox.Show("Book Added Successfully!");
+        }
+
+
     }
 }

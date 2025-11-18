@@ -54,6 +54,21 @@ namespace LibrarySystem
             }
         }
 
+        public void setTitle(string title)
+        {
+            this.title = title;
+        }
+
+        public void setAuthor(string author)
+        {
+            this.author = author;
+        }
+
+        public void setDescription(string description)
+        {
+            this.description = description;
+        }
+
         // SOLID, Single Responsibility:
         // this class only deals with book related actions, not UI or database.
         public void Checkout()
