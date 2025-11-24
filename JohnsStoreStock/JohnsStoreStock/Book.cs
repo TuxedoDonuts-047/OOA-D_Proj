@@ -12,7 +12,7 @@ namespace LibrarySystem
         private string title;
         private string author;
         private string description;
-        private bool isCheckedOut;
+        public bool isCheckedOut;
         public static int checkoutCount = 0;
 
         public int getCheckoutCount => checkoutCount;

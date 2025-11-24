@@ -64,7 +64,7 @@ namespace LibrarySystem
 
         private void searchBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSearchBook searchBookForm = new frmSearchBook();
+            frmSearchBook searchBookForm = new frmSearchBook(library);
             this.Hide();
             searchBookForm.Show();
 
@@ -91,7 +91,7 @@ namespace LibrarySystem
 
         private void bookAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmBookAnalysis bookAnalysisForm = new frmBookAnalysis();
+            frmBookAnalysis bookAnalysisForm = new frmBookAnalysis(library);
             this.Hide();
             bookAnalysisForm.Show();
 

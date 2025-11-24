@@ -57,6 +57,14 @@ namespace LibrarySystem
                     selectedBook.Checkout();
                     MessageBox.Show($"Book '{selectedBook.getTitle}' has been checked out.");
                     Book.checkoutCount++;
+                    string searchText = txtSearch.Text.Trim();
+                    var results = library.Books
+                        .Cast<Book>()
+                        .Where(b => b.getTitle.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) && !b.getCheckOutStatus)
+                        .ToList();
+
+                    dataGridResults.DataSource = null;
+                    dataGridResults.DataSource = results;
                 }
             }
             else

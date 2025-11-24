@@ -13,10 +13,11 @@ namespace JohnsStoreStock
 {
     public partial class frmSearchBook : Form
     {
-        private Library library = new Library();
-        public frmSearchBook()
+        private Library library;
+        public frmSearchBook(Library libraryInstance)
         {
             InitializeComponent();
+            library = libraryInstance;
         }
 
         private void btnBack_Click(object sender, EventArgs e)

@@ -48,7 +48,7 @@
             // dataGridResults
             // 
             this.dataGridResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridResults.Location = new System.Drawing.Point(69, 55);
+            this.dataGridResults.Location = new System.Drawing.Point(69, 78);
             this.dataGridResults.Name = "dataGridResults";
             this.dataGridResults.Size = new System.Drawing.Size(664, 218);
             this.dataGridResults.TabIndex = 10;
@@ -65,7 +65,7 @@
             // 
             // btnCheckout
             // 
-            this.btnCheckout.Location = new System.Drawing.Point(328, 279);
+            this.btnCheckout.Location = new System.Drawing.Point(331, 372);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(124, 49);
             this.btnCheckout.TabIndex = 13;

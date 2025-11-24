@@ -14,11 +14,12 @@ namespace LibrarySystem
 
     public partial class frmBookAnalysis : Form
     {
-        private Library library = new Library();
+        private Library library;
 
-        public frmBookAnalysis()
+        public frmBookAnalysis(Library libraryInstance)
         {
             InitializeComponent();
+            library = libraryInstance;
         }
 
         
