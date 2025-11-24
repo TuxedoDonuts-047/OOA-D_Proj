@@ -18,16 +18,9 @@ namespace LibrarySystem
         public frmMainMenu mainMenu;
         private frmMainMenu frmMainMenu;
 
-        public frmReturnBook(Library libraryInstance, Book bookInstance,frmMainMenu mainMenu)
-        {
-            InitializeComponent();
-            library = libraryInstance;
-            book = bookInstance;
-            this.mainMenu = mainMenu;
-        }
-
         public frmReturnBook(Library library, frmMainMenu frmMainMenu)
         {
+            InitializeComponent();
             this.library = library;
             this.frmMainMenu = frmMainMenu;
         }
@@ -55,8 +48,18 @@ namespace LibrarySystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            frmMainMenu mainMenu = new frmMainMenu();
             this.Hide();
             mainMenu.Visible = true;
+        }
+
+        private void frmReturnBook_Load(object sender, EventArgs e)
+        {
+            /*  cboName.DataSource = library.Books.Select(b => b.getAuthor).ToList();
+           cboName.SelectedIndex = -1;
+           cboTitle.DataSource = library.Books.Select(b => b.getTitle).ToList();
+           cboTitle.SelectedIndex = -1*/
+
         }
     }
 }

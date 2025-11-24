@@ -110,6 +110,7 @@
             this.Controls.Add(this.btnBack);
             this.Name = "frmReturnBook";
             this.Text = "frmReturnBook";
+            this.Load += new System.EventHandler(this.frmReturnBook_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
