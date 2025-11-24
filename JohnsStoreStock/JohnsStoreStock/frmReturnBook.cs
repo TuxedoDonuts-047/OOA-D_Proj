@@ -58,7 +58,17 @@ namespace LibrarySystem
             /*  cboName.DataSource = library.Books.Select(b => b.getAuthor).ToList();
            cboName.SelectedIndex = -1;
            cboTitle.DataSource = library.Books.Select(b => b.getTitle).ToList();
-           cboTitle.SelectedIndex = -1*/
+           cboTitle.SelectedIndex = -1*/   
+
+        }
+
+        private void cboName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

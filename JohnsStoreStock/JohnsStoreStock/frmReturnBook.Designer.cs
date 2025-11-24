@@ -44,6 +44,7 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(132, 22);
             this.txtTitle.TabIndex = 24;
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
             // 
             // lblName
             // 
@@ -74,6 +75,7 @@
             this.cboName.Name = "cboName";
             this.cboName.Size = new System.Drawing.Size(160, 24);
             this.cboName.TabIndex = 21;
+            this.cboName.SelectedIndexChanged += new System.EventHandler(this.cboName_SelectedIndexChanged);
             // 
             // btnReturnBook
             // 
