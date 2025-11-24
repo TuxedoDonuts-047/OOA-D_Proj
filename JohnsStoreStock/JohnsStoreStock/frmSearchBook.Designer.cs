@@ -63,6 +63,7 @@
             this.lstResults.Name = "lstResults";
             this.lstResults.Size = new System.Drawing.Size(418, 459);
             this.lstResults.TabIndex = 2;
+            this.lstResults.SelectedIndexChanged += new System.EventHandler(this.lstResults_SelectedIndexChanged);
             // 
             // btnSearch
             // 

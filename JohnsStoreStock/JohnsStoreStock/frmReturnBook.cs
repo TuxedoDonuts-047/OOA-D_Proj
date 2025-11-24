@@ -15,7 +15,8 @@ namespace LibrarySystem
     {
         private Library library;
         private Book book;
-        private frmMainMenu mainMenu;
+        public frmMainMenu mainMenu;
+        private frmMainMenu frmMainMenu;
 
         public frmReturnBook(Library libraryInstance, Book bookInstance,frmMainMenu mainMenu)
         {
@@ -23,6 +24,12 @@ namespace LibrarySystem
             library = libraryInstance;
             book = bookInstance;
             this.mainMenu = mainMenu;
+        }
+
+        public frmReturnBook(Library library, frmMainMenu frmMainMenu)
+        {
+            this.library = library;
+            this.frmMainMenu = frmMainMenu;
         }
 
         private void btnReturnBook_Click(object sender, EventArgs e)
