@@ -67,11 +67,6 @@ namespace LibrarySystem
         {
             this.Email = email;
         }
-
-        public virtual void displayCustomerInfo()
-        {
-            Console.WriteLine("[" + AccountID + "] " + Name + "\nAge:  " + Age + "\nEmail: " + Email);
-        }
         public override string ToString()
         {
             return $"["+ {AccountID} + "]" + {Name} {Age} {Email}";
