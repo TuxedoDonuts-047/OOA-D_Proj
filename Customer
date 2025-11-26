@@ -11,7 +11,7 @@ namespace LibrarySystem
         private string Name;
         private int Age;
         private string Email;
-        public List<Book> CheckedOutBooks {get; private set;}
+        public LinkedList<Book> CheckedOutBooks {get; private set;}
         public static int booksCheckoutCount = 0;
 
         public int getCheckoutCount => booksCheckoutCount;
@@ -23,7 +23,8 @@ namespace LibrarySystem
             this.Name = Name;
             this.Age = Age;
             this.Email = Email;
-            this.booksCheckoutCount = booksCheckoutCount;
+            CheckOutBooks = new LinkedList<Book>();
+            booksCheckoutCount = 0;
         }
 
         // Public properties to safely access data (Encapsulation)
