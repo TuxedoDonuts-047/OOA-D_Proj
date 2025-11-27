@@ -11,7 +11,7 @@ namespace LibrarySystem
         private string Name;
         private int Age;
         private string Email;
-        public LinkedList<Library.Book> CheckedOutBooks {get; set;} = new LinkedList<Library.Book>();
+        public LinkedList<Book> CheckedOutBooks {get; set;} = new LinkedList<Book>();
         public static int booksCheckoutCount = 0;
 
         public int getCheckoutCount => booksCheckoutCount;
@@ -23,7 +23,6 @@ namespace LibrarySystem
             this.Name = Name;
             this.Age = Age;
             this.Email = Email;
-            CheckOutBooks = new LinkedList<Book>();
             booksCheckoutCount = 0;
         }
 
@@ -79,7 +78,7 @@ namespace LibrarySystem
         }
         public override string ToString()
         {
-            return $"["+ {AccountID} + "]" + {Name} {Age} {Email}";
+            return"";
         }
     }
 }
