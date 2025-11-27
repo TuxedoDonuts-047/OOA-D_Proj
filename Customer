@@ -11,7 +11,7 @@ namespace LibrarySystem
         private string Name;
         private int Age;
         private string Email;
-        public LinkedList<Book> CheckedOutBooks {get; private set;}
+        public LinkedList<Library.Book> CheckedOutBooks {get; set;} = new LinkedList<Library.Book>();
         public static int booksCheckoutCount = 0;
 
         public int getCheckoutCount => booksCheckoutCount;
@@ -67,6 +67,15 @@ namespace LibrarySystem
         public void setEmail(string email)
         {
             this.Email = email;
+        }
+
+        publilc void ShowCheckedOutBooks()
+        {
+            Console.WriteLine($"{Name}'s Checked Out Books:");
+            foreach(var book in CheckedOutBooks)
+            {
+                Console.WriteLine(" - " + book.BookID + ", " + book.Name + ", " + book.Author);
+            }
         }
         public override string ToString()
         {
