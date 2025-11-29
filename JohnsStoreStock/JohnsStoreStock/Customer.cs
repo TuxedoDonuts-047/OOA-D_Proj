@@ -14,50 +14,45 @@ namespace JohnsStoreStock
         private string Name;
         private int Age;
         private string Email;
+        private string MembershipStatus;
         public LinkedList<Book> CheckedOutBooks { get; set; } = new LinkedList<Book>();
         public static int booksCheckoutCount = 0;
 
         public int getCheckoutCount => booksCheckoutCount;
 
         // Constructor
-        public Customer(List<Customer> customerList, string Name, int Age, string Email)
+        public Customer(List<Customer> customerList, string Name, int Age, string Email, string MembershipStatus)
         {
             AccountID = getNextAccountID(customerList);
             this.Name = Name;
             this.Age = Age;
             this.Email = Email;
+            this.MembershipStatus = MembershipStatus;
             booksCheckoutCount = 0;
         }
 
         // Public properties to safely access data (Encapsulation)
-        public int getAccountID
+        public int getAccountID()
         {
-            get
-            {
-                return AccountID;
-            }
+            return AccountID;
         }
-        public string getName
+        public string getName()
         {
-            get
-            {
-                return Name;
-            }
+            return Name;
         }
-        public int getAge
+        public int getAge()
         {
-            get
-            {
-                return Age;
-            }
+            return Age;
         }
-        public string getEmail
+        public string getEmail()
         {
-            get
-            {
-                return Email;
-            }
+            return Email;
         }
+        public string getMembershipStatus()
+        {
+            return MembershipStatus;
+        }
+        
         public void setAccountID(int accountID)
         {
             this.AccountID = accountID;
@@ -66,17 +61,19 @@ namespace JohnsStoreStock
         {
             this.Name = name;
         }
-
         public void setAge(int age)
         {
             this.Age = age;
         }
-
         public void setEmail(string email)
         {
             this.Email = email;
         }
-
+        public void setMembershipStatus(string membershipStatus)
+        {
+            this.MembershipStatus = membershipStatus;
+        }
+        
         public void ShowCheckedOutBooks()
         {
             Console.WriteLine($"{Name}'s Checked Out Books:");
@@ -98,6 +95,17 @@ namespace JohnsStoreStock
             }
             int maxID = customerList.Max(c => c.AccountID);
             return maxID + 1;
+        }
+
+        public static Customer getCustomer(int id)
+        {
+            foreach (Customer c in AllCustomers)
+            {
+                if (c.AccountID == id)
+                    return c;
+            }
+            
+            return null; // Not found
         }
     }
 }
