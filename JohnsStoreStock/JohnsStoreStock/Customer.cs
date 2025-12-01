@@ -14,6 +14,7 @@ namespace JohnsStoreStock
         private string Name;
         private int Age;
         private string Email;
+        private string PhoneNo;
         private string MembershipStatus;
         public static LinkedList<Customer> AllCustomers = new LinkedList<Customer>();
         public LinkedList<Book> CheckedOutBooks { get; set; } = new LinkedList<Book>();
@@ -22,12 +23,13 @@ namespace JohnsStoreStock
         public int getCheckoutCount => booksCheckoutCount;
 
         // Constructor
-        public Customer(List<Customer> customerList, string Name, int Age, string Email, string MembershipStatus)
+        public Customer(string Name, int Age, string Email, string PhoneNo, string MembershipStatus)
         {
-            AccountID = getNextAccountID(customerList);
+            AccountID = getNextAccountID();
             this.Name = Name;
             this.Age = Age;
             this.Email = Email;
+            this.PhoneNo = PhoneNo;
             this.MembershipStatus = MembershipStatus;
             booksCheckoutCount = 0;
         }
@@ -48,6 +50,10 @@ namespace JohnsStoreStock
         public string getEmail()
         {
             return Email;
+        }
+        public string getPhoneNo()
+        {
+            return PhoneNo;
         }
         public string getMembershipStatus()
         {
@@ -70,6 +76,10 @@ namespace JohnsStoreStock
         {
             this.Email = email;
         }
+        public void setPhoneNo(string phoneNo)
+        {
+            this.PhoneNo = phoneNo;
+        }
         public void setMembershipStatus(string membershipStatus)
         {
             this.MembershipStatus = membershipStatus;
@@ -88,13 +98,13 @@ namespace JohnsStoreStock
             return "";
         }
 
-        public static int getNextAccountID(List<Customer> customerList)
+        public static int getNextAccountID()
         {
-            if(customerList.Count == 0)
+            if(AllCustomers.Count == 0)
             {
                 return 1;
             }
-            int maxID = customerList.Max(c => c.AccountID);
+            int maxID = AllCustomers.Max(c => c.AccountID);
             return maxID + 1;
         }
 
