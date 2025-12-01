@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JohnsStoreStock;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace LibrarySystem
     // but closed for modification (we don’t need to change Book itself).
     public class Library
     {
+        public LinkedList<Customer> Customers { get; set; }
         // Hard-coded data for prototype (no database)
         public List<Book> books = new List<Book>()
         {

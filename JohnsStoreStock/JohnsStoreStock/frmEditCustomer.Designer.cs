@@ -33,16 +33,16 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.dtGridResults = new System.Windows.Forms.DataGridView();
             this.grpResults = new System.Windows.Forms.GroupBox();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblAge = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblTelephone = new System.Windows.Forms.Label();
-            this.lblMembership = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtAge = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.cboMembership = new System.Windows.Forms.ComboBox();
+            this.lblMembership = new System.Windows.Forms.Label();
+            this.lblTelephone = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblAge = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridResults)).BeginInit();
             this.grpResults.SuspendLayout();
             this.SuspendLayout();
@@ -90,7 +90,7 @@
             this.grpResults.Controls.Add(this.txtEmail);
             this.grpResults.Controls.Add(this.txtAge);
             this.grpResults.Controls.Add(this.txtName);
-            this.grpResults.Controls.Add(this.comboBox1);
+            this.grpResults.Controls.Add(this.cboMembership);
             this.grpResults.Controls.Add(this.lblMembership);
             this.grpResults.Controls.Add(this.lblTelephone);
             this.grpResults.Controls.Add(this.lblEmail);
@@ -103,41 +103,45 @@
             this.grpResults.TabStop = false;
             this.grpResults.Text = "Results";
             // 
-            // lblName
+            // txtTelephone
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(33, 44);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
-            this.lblName.TabIndex = 0;
-            this.lblName.Text = "Name";
+            this.txtTelephone.Location = new System.Drawing.Point(428, 37);
+            this.txtTelephone.Name = "txtTelephone";
+            this.txtTelephone.Size = new System.Drawing.Size(100, 20);
+            this.txtTelephone.TabIndex = 9;
             // 
-            // lblAge
+            // txtEmail
             // 
-            this.lblAge.AutoSize = true;
-            this.lblAge.Location = new System.Drawing.Point(33, 131);
-            this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(26, 13);
-            this.lblAge.TabIndex = 1;
-            this.lblAge.Text = "Age";
+            this.txtEmail.Location = new System.Drawing.Point(98, 198);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(181, 20);
+            this.txtEmail.TabIndex = 8;
             // 
-            // lblEmail
+            // txtAge
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(33, 205);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(32, 13);
-            this.lblEmail.TabIndex = 2;
-            this.lblEmail.Text = "Email";
+            this.txtAge.Location = new System.Drawing.Point(98, 124);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(100, 20);
+            this.txtAge.TabIndex = 7;
             // 
-            // lblTelephone
+            // txtName
             // 
-            this.lblTelephone.AutoSize = true;
-            this.lblTelephone.Location = new System.Drawing.Point(346, 44);
-            this.lblTelephone.Name = "lblTelephone";
-            this.lblTelephone.Size = new System.Drawing.Size(38, 13);
-            this.lblTelephone.TabIndex = 3;
-            this.lblTelephone.Text = "Phone";
+            this.txtName.Location = new System.Drawing.Point(98, 37);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 6;
+            // 
+            // cboMembership
+            // 
+            this.cboMembership.FormattingEnabled = true;
+            this.cboMembership.Items.AddRange(new object[] {
+            "Junior Membership",
+            "Adult Membership",
+            "Senior Membership"});
+            this.cboMembership.Location = new System.Drawing.Point(428, 123);
+            this.cboMembership.Name = "cboMembership";
+            this.cboMembership.Size = new System.Drawing.Size(121, 21);
+            this.cboMembership.TabIndex = 5;
             // 
             // lblMembership
             // 
@@ -148,45 +152,41 @@
             this.lblMembership.TabIndex = 4;
             this.lblMembership.Text = "Membership";
             // 
-            // comboBox1
+            // lblTelephone
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Junior Membership",
-            "Adult Membership",
-            "Senior Membership"});
-            this.comboBox1.Location = new System.Drawing.Point(428, 123);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 5;
+            this.lblTelephone.AutoSize = true;
+            this.lblTelephone.Location = new System.Drawing.Point(346, 44);
+            this.lblTelephone.Name = "lblTelephone";
+            this.lblTelephone.Size = new System.Drawing.Size(38, 13);
+            this.lblTelephone.TabIndex = 3;
+            this.lblTelephone.Text = "Phone";
             // 
-            // txtName
+            // lblEmail
             // 
-            this.txtName.Location = new System.Drawing.Point(98, 37);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 6;
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(33, 205);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(32, 13);
+            this.lblEmail.TabIndex = 2;
+            this.lblEmail.Text = "Email";
             // 
-            // txtAge
+            // lblAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(98, 124);
-            this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(100, 20);
-            this.txtAge.TabIndex = 7;
+            this.lblAge.AutoSize = true;
+            this.lblAge.Location = new System.Drawing.Point(33, 131);
+            this.lblAge.Name = "lblAge";
+            this.lblAge.Size = new System.Drawing.Size(26, 13);
+            this.lblAge.TabIndex = 1;
+            this.lblAge.Text = "Age";
             // 
-            // txtEmail
+            // lblName
             // 
-            this.txtEmail.Location = new System.Drawing.Point(98, 198);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(181, 20);
-            this.txtEmail.TabIndex = 8;
-            // 
-            // txtTelephone
-            // 
-            this.txtTelephone.Location = new System.Drawing.Point(428, 37);
-            this.txtTelephone.Name = "txtTelephone";
-            this.txtTelephone.Size = new System.Drawing.Size(100, 20);
-            this.txtTelephone.TabIndex = 9;
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(33, 44);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.TabIndex = 0;
+            this.lblName.Text = "Name";
             // 
             // frmEditCustomer
             // 
@@ -220,7 +220,7 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblAge;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboMembership;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtAge;

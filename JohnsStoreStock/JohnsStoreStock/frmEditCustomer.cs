@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JohnsStoreStock;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,9 @@ namespace LibrarySystem
 {
     public partial class frmEditCustomer : Form
     {
+        private frmMainMenu mainMenu;
         private Customer customer;
+        private Library library;
         public frmEditCustomer(Customer customerInstance)
         {
             InitializeComponent();
@@ -41,43 +44,45 @@ namespace LibrarySystem
             string searchText = txtSearch.Text.Trim().ToLower();
 
             // Clear previous results
-            lstResults.Items.Clear();
+            dtGridResults.DataSource = null;
 
             // Search through customers
-            var results = library.Customer
-                .Where(b => b.getName.ToLower().Contains(searchText) ||
-                            b.getEmail.ToLower().Contains(searchText))
+            var results = library.Customers
+                .Where(b => b.getName().ToLower().Contains(searchText) ||
+                            b.getEmail().ToLower().Contains(searchText))
                 .ToList();
 
             // Display results
             foreach (var customer in results)
             {
-                lstResults.Items.Add(customer); // ToString() will control how it looks
+                //lstResults.Items.Add(customer); // ToString() will control how it looks
+                dtGridResults.DataSource = null;
+                dtGridResults.DataSource = results;
             }
 
             // Optional: show message if no results
             if (results.Count == 0)
             {
-                lstResults.Items.Add("No results found.");
+                //lstResults.Items.Add("No results found.");
+                dtGridResults.DataSource = null;
+                dtGridResults.DataSource = "No results found";
             }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             //returns to main menu
-            frmMainMenu mainMenu = new frmMainMenu();
-            mainMenu.Show();
-
             this.Hide();
+            mainMenu.Show();
         }
 
         private void displayCustomerDetails(Customer c)
         {
-            txtAccountID.Text = c.AccountID.ToString();
-            txtName.Text = c.Name;
-            txtAge.Text = c.Age.ToString();
-            txtEmail.Text = c.Email;
-            txtMembershipStatus.Text = c.MembershipStatus;
+            txtName.Text = c.getName();
+            txtAge.Text = c.getAge().ToString();
+            txtEmail.Text = c.getEmail();
+            txtTelephone.Text = c.getPhoneNo();
+            cboMembership.Text = c.getMembershipStatus();
         }
     }
 }

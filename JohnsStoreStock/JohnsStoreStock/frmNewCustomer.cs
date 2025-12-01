@@ -54,8 +54,8 @@ namespace LibrarySystem
                 return;
             }
 
-            bool conflictExists = Customer.Customers.Any(c =>
-            (c.Email == email || c.PhoneNo == phone) &&
+            bool conflictExists = Customer.AllCustomers.Any(c =>
+            (c.getEmail() == txtEmail.Text || c.getPhoneNo() == txtPhoneNo.Text) &&
             !(c.Surname.Equals(lastName, StringComparison.OrdinalIgnoreCase))
             );
 
@@ -72,14 +72,14 @@ namespace LibrarySystem
 
             string selectedStatus = cboMember.SelectedItem.ToString();
 
-            Customer aCustomer = new Customer(Customer.getNextAccountID, txtName.Text, age, txtEmail.Text, txtPhoneNo.Text, selectedStatus);
-            Customer.Customers.AddLast(aCustomer);
+            Customer aCustomer = new Customer(txtName.Text, age, txtEmail.Text, txtPhoneNo.Text, selectedStatus);
+            Customer.AllCustomers.AddLast(aCustomer);
             
             txtName.Clear();
             txtAge.Clear();
             txtEmail.Clear();
             txtPhoneNo.Clear();
-            cboMember.SelectedItem == null;
+            cboMember.SelectedItem = "";
 
         }
 
