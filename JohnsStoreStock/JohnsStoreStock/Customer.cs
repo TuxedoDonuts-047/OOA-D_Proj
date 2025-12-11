@@ -23,9 +23,9 @@ namespace JohnsStoreStock
         public int getCheckoutCount => booksCheckoutCount;
 
         // Constructor
-        public Customer(string Name, int Age, string Email, string PhoneNo, string MembershipStatus)
+        public Customer(int AccountID, string Name, int Age, string Email, string PhoneNo, string MembershipStatus)
         {
-            AccountID = getNextAccountID();
+            this.AccountID = getNextAccountID();
             this.Name = Name;
             this.Age = Age;
             this.Email = Email;
@@ -33,6 +33,14 @@ namespace JohnsStoreStock
             this.MembershipStatus = MembershipStatus;
             booksCheckoutCount = 0;
         }
+
+        public List<Customer> customers = new List<Customer>()
+        {
+            new Customer(1, "Calvin Wong", 22, "calvin.mtu@gmail.com", "0852243469", "Junior"),
+            new Customer(2, "Rob Smyth", 24, "robsmyth25@gmail.com", "0867459985", "Senior"),
+            new Customer(3, "Dylan Barry", 21, "dylanbarry25@gmail.com", "0853551295", "Senior"),
+            new Customer(4, "Donnacha O'Donoghue", 23, "donnachaOD25@gmail.com", "0879056875", "Senior")
+        };
 
         // Public properties to safely access data (Encapsulation)
         public int getAccountID()
@@ -88,9 +96,14 @@ namespace JohnsStoreStock
         public void ShowCheckedOutBooks(string text)
         {
             Console.WriteLine($"{Name}'s Checked Out Books:");
+            if(CheckedOutBooks.Count == 0)
+            {
+                Console.WriteLine(" - No books currently checked out.");
+                return;
+            }
             foreach (var book in CheckedOutBooks)
             {
-                //Console.WriteLine(" - " + book.BookID + ", " + book.Name + ", " + book.Author);
+                Console.WriteLine(" - ID: " + book.getID + ", Title: " + book.getTitle + ", Author: " + book.getAuthor);
             }
         }
         public override string ToString()

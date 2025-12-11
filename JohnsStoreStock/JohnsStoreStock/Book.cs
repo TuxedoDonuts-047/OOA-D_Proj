@@ -109,5 +109,16 @@ namespace LibrarySystem
         {
             return $"[{id}] {title} by {author}";
         }
+        /* Possible add-on for BookID since AddBook has no textbox for BookID
+        public static int getNextBookID()
+        {
+            if (AllCustomers.Count == 0)
+            {
+                return 1;
+            }
+            int maxID = AllCustomers.Max(c => c.AccountID);
+            return maxID + 1;
+        }
+        */
     }
 }

@@ -46,7 +46,8 @@ namespace LibrarySystem
             double mb;
 
             if (cbSpecifyWhetherEBookOrBook.SelectedItem.ToString() == "Y")
-            {                                            // NumberStyles.Any and CultureInfo.InvariantCulture are there so it doesn't reject the decimal point "." as being a String
+            {   
+                // NumberStyles.Any and CultureInfo.InvariantCulture are there so it doesn't reject the decimal point "." as being a String
                 if (!double.TryParse(txtSpecifyFileSize.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out mb))
                 {
                     MessageBox.Show("Enter a valid number for file size.");
