@@ -14,11 +14,11 @@ namespace LibrarySystem
 {
     public partial class frmMainMenu : Form
     {
-        private Library library;  // shared instance
+        private Library library;
         public frmMainMenu()
         {
             InitializeComponent();
-            library = new Library(); // create it ONCE here
+            library = new Library();
         }
 
 
@@ -32,7 +32,6 @@ namespace LibrarySystem
             frmAddBook addBookForm = new frmAddBook(library, this);
             this.Hide();
             addBookForm.Show();
-
             this.Hide();
         }
 
@@ -41,7 +40,6 @@ namespace LibrarySystem
             frmEditBook editBookForm = new frmEditBook(library, this);
             this.Hide();
             editBookForm.Show();
-
             this.Hide();
         }
 
@@ -50,7 +48,6 @@ namespace LibrarySystem
             frmNewCustomer addCustomerForm = new frmNewCustomer(library, this);
             this.Hide();
             addCustomerForm.Show();
-
             this.Hide();
         }
 
@@ -59,7 +56,6 @@ namespace LibrarySystem
             frmEditCustomer editCustomerForm = new frmEditCustomer(library, this);
             this.Hide();
             editCustomerForm.Show();
-
             this.Hide();
         }
 
@@ -68,7 +64,6 @@ namespace LibrarySystem
             frmSearchBook searchBookForm = new frmSearchBook(library);
             this.Hide();
             searchBookForm.Show();
-
             this.Hide();
         }
 
@@ -77,7 +72,6 @@ namespace LibrarySystem
             frmCheckoutBook checkoutBookForm = new frmCheckoutBook(library, this);
             this.Hide();
             checkoutBookForm.Show();
-
             this.Hide();
         }
 
@@ -86,7 +80,6 @@ namespace LibrarySystem
             frmReturnBook returnBookForm = new frmReturnBook(library, this);
             this.Hide();
             returnBookForm.Show();
-
             this.Hide();
         }
 
@@ -95,7 +88,6 @@ namespace LibrarySystem
             frmBookAnalysis bookAnalysisForm = new frmBookAnalysis(library);
             this.Hide();
             bookAnalysisForm.Show();
-
             this.Hide();
         }
     }

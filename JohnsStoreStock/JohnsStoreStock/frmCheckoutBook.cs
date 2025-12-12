@@ -38,10 +38,8 @@ namespace LibrarySystem
             // Simple LINQ query: case-insensitive, starts-with
             var results = library.Books
                 .Cast<Book>() // ArrayList → Book objects
-                .Where(b => b.getTitle.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) && !b.getCheckOutStatus)
-                .ToList();
+                .Where(b => b.getTitle.StartsWith(searchText, StringComparison.OrdinalIgnoreCase) && !b.getCheckOutStatus).ToList();
 
-            // Bind results to DataGridView
             dataGridResults.DataSource = results;
         }
 

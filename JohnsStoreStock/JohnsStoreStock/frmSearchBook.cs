@@ -42,13 +42,10 @@ namespace JohnsStoreStock
                             (b is EBook ebook && ebook.Description.ToLower().Contains(searchText)))
                 .ToList();
 
-            // Display results
             foreach (var book in results)
             {
-                lstResults.Items.Add(book); // ToString() will control how it looks
+                lstResults.Items.Add(book); 
             }
-
-            // Optional: show message if no results
             if (results.Count == 0)
             {
                 lstResults.Items.Add("No results found.");
