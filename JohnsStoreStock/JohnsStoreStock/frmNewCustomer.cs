@@ -8,24 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LibrarySystem
 {
     public partial class frmNewCustomer : Form
     {
         frmMainMenu mainMenu;
-        public frmNewCustomer()
+        private Customer customer;
+        private Library library;
+        public frmNewCustomer(Library lib, frmMainMenu menu, Customer customerInstance = null)
         {
             InitializeComponent();
+            library = lib;
+            mainMenu = menu;
+            customer = customerInstance;
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            //when clicked, adds the customer to the db/list. All fields must have an entry,
-            //and telephone and email must not match another customers, uless the customer has the same address and last name of the current customer.
-
-            //validation and confirmation here^^^
-            if(string.IsNullOrWhiteSpace(txtName.Text))
+            // Validation
+            if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Please re-enter the customer's name", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtName.Focus();
@@ -49,18 +52,19 @@ namespace LibrarySystem
                 txtPhoneNo.Focus();
                 return;
             }
-            if(cboMember.SelectedItem == null)
+            if (cboMember.SelectedItem == null)
             {
                 MessageBox.Show("Please select a membership status of the customer", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            // Check for duplicates
             string[] nameParts = txtName.Text.Trim().Split(' ');
             string lastName = nameParts[nameParts.Length - 1];
 
             bool conflictExists = Customer.AllCustomers.Any(c =>
-            (c.getEmail() == txtEmail.Text || c.getPhoneNo() == txtPhoneNo.Text) &&
-            !(c.getName().Equals(lastName, StringComparison.OrdinalIgnoreCase))
+                (c.getEmail() == txtEmail.Text || c.getPhoneNo() == txtPhoneNo.Text) &&
+                !(c.getName().Equals(lastName, StringComparison.OrdinalIgnoreCase))
             );
 
             if (conflictExists)
@@ -69,20 +73,27 @@ namespace LibrarySystem
                     "This phone number or email is already in use by another customer.",
                     "Duplicate Found",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-        
+                    MessageBoxIcon.Warning
+                );
                 return;
             }
 
+            // Create new customer
             string selectedStatus = cboMember.SelectedItem.ToString();
+            Customer aCustomer = new Customer(txtName.Text, age, txtEmail.Text, txtPhoneNo.Text, selectedStatus);
+            library.Customers.AddLast(aCustomer);
 
-            Customer aCustomer = new Customer(Customer.getNextAccountID(), txtName.Text, age, txtEmail.Text, txtPhoneNo.Text, selectedStatus);
-            Customer.AllCustomers.AddLast(aCustomer);
+            // At this point, the constructor already adds it to AllCustomers.
+
+            // Clear form
             txtName.Clear();
             txtAge.Clear();
             txtEmail.Clear();
             txtPhoneNo.Clear();
-            cboMember.SelectedItem = "";
+            cboMember.SelectedItem = null;
+
+            // Show confirmation
+            MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
