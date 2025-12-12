@@ -70,19 +70,15 @@ namespace LibrarySystem
             txtTitle.Text = "";
             txtAuthor.Text = "";
             txtDescription.Text = "";
-
-            cboStatus.SelectedIndex = 0; // CheckOut CB
+            cboStatus.SelectedIndex = 0;
             cbSpecifyWhetherEBookOrBook.SelectedIndex = 0;
-
             txtSpecifyFileSize.Text = "";
             lblSpecifyFileSizeInMBs.Visible = false;
             txtSpecifyFileSize.Visible = false;
         }
-
-
         private void frmAddBook_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void cbSpecifyWhetherEBookOrBook_SelectedIndexChanged(object sender, EventArgs e)

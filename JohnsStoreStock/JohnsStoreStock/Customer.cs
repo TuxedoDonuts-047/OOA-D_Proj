@@ -29,6 +29,7 @@ namespace JohnsStoreStock
 
         public static LinkedList<Customer> AllCustomers = new LinkedList<Customer>();
         public LinkedList<Book> CheckedOutBooks { get; set; } = new LinkedList<Book>();
+
         public static int booksCheckoutCount = 0;
 
         public int getCheckoutCount => booksCheckoutCount;
@@ -36,18 +37,14 @@ namespace JohnsStoreStock
         // Constructor
         public Customer(string name, int age, string email, string phoneNo, string membershipStatus)
         {
-            this.AccountID = getNextAccountID(); // auto-generate ID
+            this.AccountID = getNextAccountID();
             this.Name = name;
             this.Age = age;
             this.Email = email;
             this.PhoneNo = phoneNo;
             this.MembershipStatus = membershipStatus;
-
-            // Add to global list of customers
             AllCustomers.AddLast(this);
         }
-
-        
 
         // Public properties to safely access data (Encapsulation)
         public int getAccountID()
@@ -99,7 +96,6 @@ namespace JohnsStoreStock
         {
             this.MembershipStatus = membershipStatus;
         }
-        
         public void ShowCheckedOutBooks(string text)
         {
             Console.WriteLine($"{Name}'s Checked Out Books:");
@@ -136,7 +132,7 @@ namespace JohnsStoreStock
                     return c;
             }
             
-            return null; // Not found
+            return null;
         }
     }
 }

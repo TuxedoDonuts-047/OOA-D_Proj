@@ -95,7 +95,6 @@ namespace JohnsStoreStock
                 .Where(b => b.getTitle.StartsWith(searchText, StringComparison.OrdinalIgnoreCase))
                 .ToList();
 
-            // Bind results to DataGridView
             dataGridResults.DataSource = results;
         }
 
@@ -111,15 +110,11 @@ namespace JohnsStoreStock
                 selectedBook = dataGridResults.CurrentRow.DataBoundItem as Book;
                 if (selectedBook != null)
                 {
-                    // Show details group
                     grpDetails.Visible = true;
-
-                    // Fill textboxes
                     txtTitle.Text = selectedBook.getTitle;
                     txtAuthor.Text = selectedBook.getAuthor;
                     txtDescription.Text = selectedBook.getDescription;
 
-                    // If it's an EBook, show and fill size
                     if (selectedBook is EBook ebook)
                     {
                         txtSizeInMBs.Visible = true;

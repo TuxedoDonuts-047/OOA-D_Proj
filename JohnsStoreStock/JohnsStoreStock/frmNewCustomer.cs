@@ -58,7 +58,6 @@ namespace LibrarySystem
                 return;
             }
 
-            // Check for duplicates
             string[] nameParts = txtName.Text.Trim().Split(' ');
             string lastName = nameParts[nameParts.Length - 1];
 
@@ -78,12 +77,9 @@ namespace LibrarySystem
                 return;
             }
 
-            // Create new customer
             string selectedStatus = cboMember.SelectedItem.ToString();
             Customer aCustomer = new Customer(txtName.Text, age, txtEmail.Text, txtPhoneNo.Text, selectedStatus);
             library.Customers.AddLast(aCustomer);
-
-            // At this point, the constructor already adds it to AllCustomers.
 
             // Clear form
             txtName.Clear();
@@ -91,8 +87,6 @@ namespace LibrarySystem
             txtEmail.Clear();
             txtPhoneNo.Clear();
             cboMember.SelectedItem = null;
-
-            // Show confirmation
             MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }

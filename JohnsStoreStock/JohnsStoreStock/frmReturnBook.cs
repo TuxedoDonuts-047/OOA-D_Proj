@@ -78,7 +78,6 @@ namespace LibrarySystem
             var customer = Customer.AllCustomers.FirstOrDefault(c => c.getName() == cboName.Text);
             if (customer != null && customer.CheckedOutBooks.Any())
             {
-                // Show the first book title in the TextBox
                 txtTitle.Text = customer.CheckedOutBooks.First().getTitle;
             }
             else
