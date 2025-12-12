@@ -21,6 +21,7 @@ namespace LibrarySystem
             library = new Library(); // create it ONCE here
         }
 
+
         private void frmMainMenu_Load(object sender, EventArgs e)
         {
             //image used: https://www.nli.ie/sites/default/files/styles/image_with_caption_narrow/public/2022-10/nli-oct-screen-res-56.webp?h=78aab1d8&itok=qDrjbLV4
@@ -46,7 +47,7 @@ namespace LibrarySystem
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNewCustomer addCustomerForm = new frmNewCustomer();
+            frmNewCustomer addCustomerForm = new frmNewCustomer(library, this);
             this.Hide();
             addCustomerForm.Show();
 
@@ -55,7 +56,7 @@ namespace LibrarySystem
 
         private void editCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmEditCustomer editCustomerForm = new frmEditCustomer();
+            frmEditCustomer editCustomerForm = new frmEditCustomer(library, this);
             this.Hide();
             editCustomerForm.Show();
 

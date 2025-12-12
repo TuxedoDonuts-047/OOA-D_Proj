@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Xml.Linq;
 
 namespace JohnsStoreStock
 {
@@ -16,6 +19,14 @@ namespace JohnsStoreStock
         private string Email;
         private string PhoneNo;
         private string MembershipStatus;
+
+        public int AccountIDColumn => AccountID;
+        public string NameColumn => Name;
+        public int AgeColumn => Age;
+        public string EmailColumn => Email;
+        public string PhoneNoColumn => PhoneNo;
+        public string MembershipStatusColumn => MembershipStatus;
+
         public static LinkedList<Customer> AllCustomers = new LinkedList<Customer>();
         public LinkedList<Book> CheckedOutBooks { get; set; } = new LinkedList<Book>();
         public static int booksCheckoutCount = 0;
@@ -23,24 +34,20 @@ namespace JohnsStoreStock
         public int getCheckoutCount => booksCheckoutCount;
 
         // Constructor
-        public Customer(int AccountID, string Name, int Age, string Email, string PhoneNo, string MembershipStatus)
+        public Customer(string name, int age, string email, string phoneNo, string membershipStatus)
         {
-            this.AccountID = getNextAccountID();
-            this.Name = Name;
-            this.Age = Age;
-            this.Email = Email;
-            this.PhoneNo = PhoneNo;
-            this.MembershipStatus = MembershipStatus;
-            booksCheckoutCount = 0;
+            this.AccountID = getNextAccountID(); // auto-generate ID
+            this.Name = name;
+            this.Age = age;
+            this.Email = email;
+            this.PhoneNo = phoneNo;
+            this.MembershipStatus = membershipStatus;
+
+            // Add to global list of customers
+            AllCustomers.AddLast(this);
         }
 
-        public List<Customer> customers = new List<Customer>()
-        {
-            new Customer(1, "Calvin Wong", 22, "calvin.mtu@gmail.com", "0852243469", "Junior"),
-            new Customer(2, "Rob Smyth", 24, "robsmyth25@gmail.com", "0867459985", "Senior"),
-            new Customer(3, "Dylan Barry", 21, "dylanbarry25@gmail.com", "0853551295", "Senior"),
-            new Customer(4, "Donnacha O'Donoghue", 23, "donnachaOD25@gmail.com", "0879056875", "Senior")
-        };
+        
 
         // Public properties to safely access data (Encapsulation)
         public int getAccountID()

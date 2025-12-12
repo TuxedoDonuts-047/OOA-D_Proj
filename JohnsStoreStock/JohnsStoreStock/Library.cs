@@ -22,6 +22,21 @@ namespace LibrarySystem
             new Book(3, "Clean Code", "Robert C. Martin", "Fantastic series"),
             new EBook(4, "C# in Depth", "Jon Skeet", 5.2, "Fantastic series")
         };
+        public Library()
+        {
+            Customers = new LinkedList<Customer>();
+
+            // Pre-populate some customers using the new constructor
+            var c1 = new Customer("Calvin Wong", 22, "calvin.mtu@gmail.com", "0852243469", "Junior");
+            var c2 = new Customer("Rob Smyth", 24, "robsmyth25@gmail.com", "0867459985", "Senior");
+            var c3 = new Customer("Dylan Barry", 21, "dylanbarry25@gmail.com", "0853551295", "Senior");
+            var c4 = new Customer("Donnacha O'Donoghue", 23, "donnachaOD25@gmail.com", "0879056875", "Senior");
+
+            Customers.AddLast(c1);
+            Customers.AddLast(c2);
+            Customers.AddLast(c3);
+            Customers.AddLast(c4);
+        }
 
         // SOLID - Liskov Substitution:
         // We can store both Book and EBook objects in the same list.

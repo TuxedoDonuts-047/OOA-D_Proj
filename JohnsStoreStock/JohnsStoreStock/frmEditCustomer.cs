@@ -16,10 +16,17 @@ namespace LibrarySystem
         private frmMainMenu mainMenu;
         private Customer customer;
         private Library library;
-        public frmEditCustomer(Customer customerInstance)
+        public frmEditCustomer(Library lib, frmMainMenu menu, Customer customerInstance = null)
         {
             InitializeComponent();
+            library = lib; 
+            mainMenu = menu;
             customer = customerInstance;
+        }
+        public frmEditCustomer(Library lib)
+        {
+            InitializeComponent();
+            library = lib; // now library is initialized
         }
 
         public frmEditCustomer()
@@ -29,15 +36,13 @@ namespace LibrarySystem
 
         private void dtGridResults_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //when an item is clicked, the group box fills with relevant infomration according to search string.
-            if(e.RowIndex < 0)
-            {
+            if (e.RowIndex < 0)
                 return;
-            }
+
             int selectedID = Convert.ToInt32(dtGridResults.Rows[e.RowIndex].Cells["AccountID"].Value);
             Customer selectedCustomer = Customer.getCustomer(selectedID);
 
-            if(selectedCustomer != null)
+            if (selectedCustomer != null)
             {
                 displayCustomerDetails(selectedCustomer);
             }
@@ -45,33 +50,39 @@ namespace LibrarySystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //searches db/list for strings matching the given string, then fills the data grid box with results for selecton..
             string searchText = txtSearch.Text.Trim().ToLower();
 
             // Clear previous results
             dtGridResults.DataSource = null;
 
-            // Search through customers
+            if (library?.Customers == null || library.Customers.Count == 0)
+            {
+                MessageBox.Show("No customers available.");
+                return;
+            }
+
+            // Convert LinkedList to List and create objects for DataGridView
             var results = library.Customers
-                .Where(b => b.getName().ToLower().Contains(searchText) ||
-                            b.getEmail().ToLower().Contains(searchText))
+                .Where(c => c.getName().ToLower().Contains(searchText) || c.getEmail().ToLower().Contains(searchText))
+                .Select(c => new
+                {
+                    AccountID = c.getAccountID(),
+                    Name = c.getName(),
+                    Age = c.getAge(),
+                    Email = c.getEmail(),
+                    PhoneNo = c.getPhoneNo(),
+                    Membership = c.getMembershipStatus()
+                })
                 .ToList();
 
-            // Display results
-            foreach (var customer in results)
-            {
-                //lstResults.Items.Add(customer); // ToString() will control how it looks
-                dtGridResults.DataSource = null;
-                dtGridResults.DataSource = results;
-            }
-
-            // Optional: show message if no results
             if (results.Count == 0)
             {
-                //lstResults.Items.Add("No results found.");
+                MessageBox.Show("No results found.");
                 dtGridResults.DataSource = null;
-                dtGridResults.DataSource = "No results found";
+                return;
             }
+
+            dtGridResults.DataSource = results;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
